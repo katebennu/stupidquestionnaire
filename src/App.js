@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import Questions from './Questions';
 import logo from './logo.jpg';
 import './App.css';
 
 class App extends Component {
   render() {
+
+    const questions = Questions;
+      console.log(questions[1]);
+
     return (
       <div className="App">
         <div className="App-header">
