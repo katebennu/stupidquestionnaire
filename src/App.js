@@ -16,7 +16,7 @@ class App extends Component {
           <p>Questions shall appear here</p>
           <input/>
           <button>Totally!</button>
-          <div>---progress bar---</div>
+          <div className="Progress-bar">---progress bar---</div>
       </div>
     );
   }
