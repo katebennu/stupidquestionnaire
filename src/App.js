@@ -7,7 +7,8 @@ class App extends Component {
   render() {
 
     const questions = Questions;
-      console.log(questions[1]);
+    const randN = Math.floor(Math.random() * questions.length);
+    const randQuestion = questions[randN];
 
     return (
       <div className="App">
@@ -18,9 +19,9 @@ class App extends Component {
         <h3 className="App-intro">
          Answer a few questions and see the results!
         </h3>
-          <p>Questions shall appear here</p>
+          <p>{randQuestion}</p>
           <input/>
-          <button>Totally!</button>
+          <button>Send</button>
           <div className="Progress-bar">---progress bar---</div>
       </div>
     );
