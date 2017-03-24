@@ -25,8 +25,7 @@ class App extends Component {
           <p>{randQuestion}</p>
           <input/>
           <button>Send</button>
-          <div className="Progress-bar">---progress bar---</div>
-          <div id="container">bar here</div>
+          <div id="container"></div>
 
       </div>
     );

@@ -4,6 +4,8 @@ import App from './App';
 import './index.css';
 var ProgressBar = require('progressbar.js');
 
+var count = 0;
+
 ReactDOM.render(
   <App />,
   document.getElementById('root')
