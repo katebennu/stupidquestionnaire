@@ -10,7 +10,7 @@ class App extends Component {
         super(props);
         this.state = {randQuestion: Questions.getRandom()};
     };
-    newQuestion() {
+    newQuestion(e) {
         this.setState({
             randQuestion: Questions.getRandom()
         });
@@ -28,7 +28,7 @@ class App extends Component {
                 </h3>
                 <QuestionLabel updValue={this.state.randQuestion} />
                 <input/>
-                <Button passClick={this.newQuestion}/>
+                <Button passClick={(e) => this.newQuestion(e)}/>
                 <div className="Progress-bar">---progress bar---</div>
                 <div id="container">bar here</div>
 
