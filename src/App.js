@@ -8,12 +8,15 @@ import './App.css';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {randQuestion: Questions.getRandom()};
+        this.state = {
+            randQuestion: Questions.getRandom()
+        };
     };
     newQuestion(e) {
         this.setState({
             randQuestion: Questions.getRandom()
         });
+        this.refs.myInput.value = '';
     };
     render() {
 
@@ -27,7 +30,7 @@ class App extends Component {
                     Answer a few questions and see the results!
                 </h3>
                 <QuestionLabel updValue={this.state.randQuestion} />
-                <input/>
+                <input type="text" ref="myInput" />
                 <Button passClick={(e) => this.newQuestion(e)}/>
                 <div className="Progress-bar">---progress bar---</div>
                 <div id="container">bar here</div>
