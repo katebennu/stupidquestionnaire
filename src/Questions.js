@@ -1,5 +1,5 @@
 const Questions = (function() {
-    return [
+    const data =  [
         "Whats your (full) name?",
         "How old are you?",
         "Whats your Birthday?",
@@ -794,6 +794,12 @@ const Questions = (function() {
         "Would you ever let your parents pick out a partner for you?",
         "Have you ever tried spam? (the meat product)"
     ];
+    return {
+        getRandom: function() {
+            const randN = Math.floor(Math.random() * data.length);
+            return data[randN];
+        }
+    };
 })();
 
 module.exports = Questions;
