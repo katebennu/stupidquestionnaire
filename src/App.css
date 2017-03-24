@@ -18,11 +18,17 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
+/*@keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+}*/
 
 .Progress-bar {
   margin-top: 50px;
+}
+
+#container {
+  margin: 20px;
+  width: 400px;
+  height: 8px;
 }

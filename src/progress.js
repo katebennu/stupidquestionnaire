@@ -1,15 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
 var ProgressBar = require('progressbar.js');
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
-
-var bar = new ProgressBar.Line('#container', {
+var bar = new ProgressBar.Line(container, {
     strokeWidth: 4,
     easing: 'easeInOut',
     duration: 1400,
@@ -25,3 +16,4 @@ var bar = new ProgressBar.Line('#container', {
 });
 
 bar.animate(0.7);
+

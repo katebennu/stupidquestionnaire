@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Questions from './Questions';
 import logo from './logo.jpg';
 import './App.css';
+//import './progress.js'
+
+
 
 class App extends Component {
   render() {
@@ -23,9 +26,15 @@ class App extends Component {
           <input/>
           <button>Send</button>
           <div className="Progress-bar">---progress bar---</div>
+          <div id="container">bar here</div>
+
       </div>
     );
   }
 }
+
+
+
+
 
 export default App;
