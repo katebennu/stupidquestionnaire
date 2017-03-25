@@ -18,9 +18,14 @@ class App extends Component {
         this.setState({
             randQuestion: Questions.getRandom()
         });
+        alert('Come on, this might be an important piece of information. Are you sure you want to skip this??');
+        alert('Totally sure??');
+        alert('Totally-totally sure???');
         this.refs.myInput.value = '';
     }
     newQuestion(e) {
+        event.preventDefault(e);
+        event.stopPropagation();
         const newCount = this.state.count+1;
         var newProgress = this.state.progress;
         //voodoo magic here, but basically slowing down progress bar so it never reach end
@@ -35,6 +40,7 @@ class App extends Component {
             progress: newProgress
         });
         this.refs.myInput.value = '';
+
     };
     render() {
 
@@ -50,11 +56,12 @@ class App extends Component {
                 <div className="Question">
                     <ProgressBarLine updValue={this.state.progress} />
                     <QuestionLabel updValue={this.state.randQuestion} />
-                    <input type="text" ref="myInput" className="inputAnswer"/>
+                    <form className="commentForm" onSubmit={(e) => this.newQuestion(e)}>
+                        <input type="text" ref="myInput" className="inputAnswer"/>
                     <div className="buttons">
                         <Button btnLabel="skip question" passClick={(e) => this.skipQuestion(e)}/>
-                        <Button btnLabel="next question" passClick={(e) => this.newQuestion(e)}/>
-                    </div>
+                        <Button type="submit" btnLabel="next question"/>
+                    </div></form>
                     <div><p>You could skip a question, but it will not progress forward.</p></div>
                 </div>
             </div>
