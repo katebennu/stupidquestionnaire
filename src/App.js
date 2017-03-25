@@ -47,11 +47,14 @@ class App extends Component {
                 <h3 className="App-intro">
                     Answer a few questions and see the results!
                 </h3>
-                <ProgressBarLine updValue={this.state.progress} />
-                <QuestionLabel updValue={this.state.randQuestion} />
-                <input type="text" ref="myInput" />
-                <Button btnLabel="skip question" passClick={(e) => this.skipQuestion(e)}/>
-                <Button btnLabel="next question" passClick={(e) => this.newQuestion(e)}/>
+                <div className="Question">
+                    <ProgressBarLine updValue={this.state.progress} />
+                    <QuestionLabel updValue={this.state.randQuestion} />
+                    <input type="text" ref="myInput" />
+                    <Button btnLabel="skip question" passClick={(e) => this.skipQuestion(e)}/>
+                    <Button btnLabel="next question" passClick={(e) => this.newQuestion(e)}/>
+                    <div><p>You could skip a question, but it will not progress forward.</p></div>
+                </div>
             </div>
         );
     }
@@ -70,7 +73,7 @@ const Button = React.createClass({
 
 const QuestionLabel = React.createClass({
     render: function() {
-        return (<div>{this.props.updValue}</div>);
+        return (<h2>{this.props.updValue}</h2>);
     }
 });
 
