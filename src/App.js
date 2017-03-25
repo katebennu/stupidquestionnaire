@@ -16,15 +16,6 @@ class App extends Component {
     };
 
     skipQuestion(e) {
-        var r = confirm('Come on, this might be an important piece of information. Are you sure you want to skip this?');
-        if (r == false) { return }
-
-        var r = confirm('Totally sure??');
-        if (r == false) { return }
-
-        var r = confirm('Totally-totally sure???');
-        if (r == false) { return }
-
         this.setState({
             randQuestion: Questions.getRandom()
         });
@@ -64,12 +55,11 @@ class App extends Component {
                 <div className="Question">
                     <ProgressBarLine updValue={this.state.progress} />
                     <QuestionLabel updValue={this.state.randQuestion} />
-                    <form className="commentForm" onSubmit={(e) => this.newQuestion(e)}>
-                        <input type="text" ref="myInput" className="inputAnswer" required />
+                    <input type="text" ref="myInput" className="inputAnswer" />
                     <div className="buttons">
                         <Button btnLabel="skip question" passClick={(e) => this.skipQuestion(e)}/>
-                        <Button type="submit" btnLabel="next question"/>
-                    </div></form>
+                        <Button btnLabel="next question" passClick={(e) => this.newQuestion(e)}/>
+                    </div>
                     <div><p>You could skip a question, but it will not progress forward.</p></div>
                 </div>
             </div>
