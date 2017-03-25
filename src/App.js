@@ -14,10 +14,16 @@ class App extends Component {
             progress: 0
         };
     };
+    skipQuestion(e) {
+        this.setState({
+            randQuestion: Questions.getRandom()
+        });
+        this.refs.myInput.value = '';
+    }
     newQuestion(e) {
         const newCount = this.state.count+1;
         var newProgress = this.state.progress;
-        //voodo magic here, but basically slowing down progress bar so it never reach end
+        //voodoo magic here, but basically slowing down progress bar so it never reach end
         if (newCount<8) {
             newProgress = newProgress+0.1;
         } else if (newCount<20){
@@ -41,12 +47,11 @@ class App extends Component {
                 <h3 className="App-intro">
                     Answer a few questions and see the results!
                 </h3>
+                <ProgressBarLine updValue={this.state.progress} />
                 <QuestionLabel updValue={this.state.randQuestion} />
                 <input type="text" ref="myInput" />
-                <Button passClick={(e) => this.newQuestion(e)}/>
-                <ProgressBarLine updValue={this.state.progress} />
-
-
+                <Button btnLabel="skip question" passClick={(e) => this.skipQuestion(e)}/>
+                <Button btnLabel="next question" passClick={(e) => this.newQuestion(e)}/>
             </div>
         );
     }
@@ -58,7 +63,7 @@ const Button = React.createClass({
     },
     render: function() {
         return (
-            <button onClick={this.handleClick} >Next</button>
+            <button onClick={this.handleClick} >{this.props.btnLabel}</button>
         )
     }
 });
@@ -80,22 +85,18 @@ const ProgressBarLine = React.createClass({
             trailWidth: 1,
             svgStyle: {width: '100%', height: '100%'},
             from: {color: '#FFEA82'},
-            to: {color: '#ED6A5A'}/*,
-            step: (state, bar) => {
-                bar.path.setAttribute('stroke', state.color);
-            }*/
+            to: {color: '#ED6A5A'}
         };
         const containerStyle = {
-            width: '400px',
-            height: '20px'
+            width: '50%',
+            margin: 'auto'
         };
         return (
             <ProgressBar.Line
                 progress={this.props.updValue}
                 options={options}
                 initialAnimate={true}
-                containerStyle={containerStyle}
-                containerClassName={'.progressbar'} />
+                containerStyle={containerStyle} />
         );
     }
 });
