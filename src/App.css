@@ -35,3 +35,19 @@ h3 {
   width: 400px;
   height: 8px;
 }
+
+.inputAnswer {
+  width: 50%;
+  font-size: 20pt;
+}
+
+.buttons {
+  width: 50%;
+  margin: auto;
+  text-align: right;
+}
+
+.rightButton {
+  padding: 10px;
+  margin: 10px;
+}
