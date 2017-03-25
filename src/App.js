@@ -14,6 +14,7 @@ class App extends Component {
             progress: 0
         };
     };
+
     skipQuestion(e) {
         this.setState({
             randQuestion: Questions.getRandom()
@@ -57,7 +58,7 @@ class App extends Component {
                     <ProgressBarLine updValue={this.state.progress} />
                     <QuestionLabel updValue={this.state.randQuestion} />
                     <form className="commentForm" onSubmit={(e) => this.newQuestion(e)}>
-                        <input type="text" ref="myInput" className="inputAnswer"/>
+                        <input type="text" ref="myInput" className="inputAnswer" required />
                     <div className="buttons">
                         <Button btnLabel="skip question" passClick={(e) => this.skipQuestion(e)}/>
                         <Button type="submit" btnLabel="next question"/>
