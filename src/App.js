@@ -16,12 +16,19 @@ class App extends Component {
     };
 
     skipQuestion(e) {
+        var r = confirm('Come on, this might be an important piece of information. Are you sure you want to skip this?');
+        if (r == false) { return }
+
+        var r = confirm('Totally sure??');
+        if (r == false) { return }
+
+        var r = confirm('Totally-totally sure???');
+        if (r == false) { return }
+
         this.setState({
             randQuestion: Questions.getRandom()
         });
-        alert('Come on, this might be an important piece of information. Are you sure you want to skip this??');
-        alert('Totally sure??');
-        alert('Totally-totally sure???');
+
         this.refs.myInput.value = '';
     }
     newQuestion(e) {
